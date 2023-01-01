@@ -68,16 +68,20 @@ function checkBrackets(string) {
   const openingBrackets = string.split('').filter(char => char === '(').length;
   const closingBrackets = string.split('').filter(char => char === ')').length;
 
-  return openingBrackets === closingBrackets;
+  // return openingBrackets === closingBrackets; // ispravak, jer ovo daje true i u slucaju da je ulazni string bez ijedne zagrade
+
+  return openingBrackets > 0 || closingBrackets > 0 ? openingBrackets === closingBrackets : 'No brackets in string';
 }
 
 const test1 = checkBrackets('(a + b) * (c - d)');
 const test2 = checkBrackets('(a + b * (c - d)');
 const test3 = checkBrackets('(c * (a + b)) * (x - (y * (c - d)))');
+const test4 = checkBrackets('javascript');
 
 console.log(test1); // true
 console.log(test2); // false
 console.log(test3); // true
+console.log(test4); // No brackets in string
 
 
 
