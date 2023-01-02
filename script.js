@@ -70,7 +70,9 @@ function checkBrackets(string) {
 
   // return openingBrackets === closingBrackets; // ispravak, jer ovo daje true i u slucaju da je ulazni string bez ijedne zagrade
 
-  return openingBrackets > 0 || closingBrackets > 0 ? openingBrackets === closingBrackets : 'No brackets in string';
+  // return openingBrackets > 0 || closingBrackets > 0 ? openingBrackets === closingBrackets : 'No brackets in string';
+
+  return !!openingBrackets || !!closingBrackets ? openingBrackets === closingBrackets : 'No brackets in string';
 }
 
 const test1 = checkBrackets('(a + b) * (c - d)');
